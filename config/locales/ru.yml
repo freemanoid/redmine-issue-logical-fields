@@ -1,7 +1,7 @@
 ru:
   label_compare: "Сравнение"
-  field_true_message: 'Сообщение если условие истинно'
-  field_false_message: 'Сообщение если условие ложно'
+  field_true_message: 'Строка если условие истинно'
+  field_false_message: 'Строка если условие ложно'
   field_operation: 'Операция'
   field_first_date: 'Первая дата'
   field_second_date: 'Вторая дата'
