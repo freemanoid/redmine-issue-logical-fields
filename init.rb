@@ -1,3 +1,18 @@
+require 'redmine'
+
+Redmine::CustomFieldFormat.map do |fields|
+  fields.register 'compare', only: %w(Issue)
+end
+
+class ViewsHooks < Redmine::Hook::ViewListener
+  render_on :view_custom_fields_form_upper_box, :partial => "custom_fields/compare"
+end
+
+Rails.configuration.to_prepare do
+  require 'custom_field_patch'
+  CustomField.send :include, CustomFieldPatch
+end
+
 Redmine::Plugin.register :issue_logical_fields do
   name 'Issue Logical Fields plugin'
   author 'Alexandr Elhovenko'
