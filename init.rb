@@ -16,6 +16,13 @@ Rails.configuration.to_prepare do
   require 'query_custom_field_column_patch'
   require_dependency 'query'
   QueryCustomFieldColumn.send :include, QueryCustomFieldColumnPatch
+  require 'acts_as_customizable_patch'
+  require_dependency 'acts_as_customizable'
+  Redmine::Acts::Customizable::InstanceMethods.send :include, ActsAsCustomizablePatch
+  require 'custom_field_format_patch'
+  Redmine::CustomFieldFormat.send :include, CustomFieldFormatPatch
+  require 'issue_patch'
+  Issue.send :include, IssuePatch
 end
 
 Redmine::Plugin.register :issue_logical_fields do
