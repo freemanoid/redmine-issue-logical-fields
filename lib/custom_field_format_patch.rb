@@ -1,20 +1,22 @@
-module CustomFieldFormatPatch
-  module ClassMethods
+module LogicalFields
+  module CustomFieldFormatPatch
+    module ClassMethods
 
-  end
-
-  module InstanceMethods
-    def format_as_compare(value)
-      value
     end
-  end
 
-  def self.included(receiver)
-    receiver.extend         ClassMethods
-    receiver.send :include, InstanceMethods
+    module InstanceMethods
+      def format_as_compare(value)
+        value
+      end
+    end
 
-    receiver.class_eval do
-      unloadable
+    def self.included(receiver)
+      receiver.extend         ClassMethods
+      receiver.send :include, InstanceMethods
+
+      receiver.class_eval do
+        unloadable
+      end
     end
   end
 end

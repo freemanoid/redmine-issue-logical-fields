@@ -1,18 +1,20 @@
-module QueriesHelperPatch
-  module ClassMethods
+module LogicalFields
+  module QueriesHelperPatch
+    module ClassMethods
 
-  end
+    end
 
-  module InstanceMethods
+    module InstanceMethods
 
-  end
+    end
 
-  def self.included(receiver)
-    receiver.extend         ClassMethods
-    receiver.send :include, InstanceMethods
+    def self.included(receiver)
+      receiver.extend         ClassMethods
+      receiver.send :include, InstanceMethods
 
-    receiver.class_eval do
-      unloadable
+      receiver.class_eval do
+        unloadable
+      end
     end
   end
 end
