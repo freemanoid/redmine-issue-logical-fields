@@ -15,8 +15,6 @@ module LogicalFields
             else
               field.value = field.custom_field.false_message
             end
-          else
-            field.value = ''
           end
           field
         end
