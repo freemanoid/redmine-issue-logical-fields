@@ -3,8 +3,6 @@ require 'redmine'
 Rails.configuration.to_prepare do
   require 'custom_field_patch'
   CustomField.send :include,                                  LogicalFields::CustomFieldPatch
-  require 'queries_helper_patch'
-  QueriesHelper.send :include,                                LogicalFields::QueriesHelperPatch
   require 'query_custom_field_column_patch'
   require_dependency 'query'
   QueryCustomFieldColumn.send :include,                       LogicalFields::QueryCustomFieldColumnPatch
